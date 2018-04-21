@@ -1,10 +1,10 @@
-<h1>All our products will go</h1>
-
-<% @products.each do |product| %>
-
+<section class="index">
+  <% @products.each do |product| %>
 
 
-  <%= render "product_individual", product: product %>
+    <div class="single">
+      <%= render "product_individual", product: product %>
+    </div>
 
-
-<% end %>
+  <% end %>
+</section>

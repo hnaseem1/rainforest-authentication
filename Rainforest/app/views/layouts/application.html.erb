@@ -7,16 +7,29 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Armata" rel="stylesheet">
   </head>
 
-  <header>
-    <nav>
-      <a><%= link_to 'Home', root_path %></a>
-      <a><%= link_to 'Products', products_path %></a>
-      <a><%= link_to 'New Products', new_product_path %></a>
-    </nav>
-  </header>
-  <body>
-    <%= yield %>
+
+
+  <body class="container">
+    <header class="header">
+      <h1 class="logo"> <a href="/products"> Rainforest</a></h1>
+      <nav class="navbar">
+        <a><%= link_to 'Home', root_path %></a>
+        <a><%= link_to 'Products', products_path %></a>
+        <a><%= link_to 'Add New Product', new_product_path %></a>
+      </nav>
+    </header>
+
+    <section class="wrapper">
+
+      <%= yield %>
+
+    </section>
+
+    <footer>
+      <h5>Hasan | Karen | Gustavo  </h5>
+    </footer>
   </body>
 </html>
