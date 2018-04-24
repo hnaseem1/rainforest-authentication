@@ -3,7 +3,7 @@
 
 
     <div class="single">
-      <%= render "product_individual", product: product %>
+      <%= render "product_individual", product: product, price_in_dollar: product.price_in_cents/100.0 %>
     </div>
 
   <% end %>
