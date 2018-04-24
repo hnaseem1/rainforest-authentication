@@ -1,6 +1,16 @@
 <div class="new">
   <h1>Login</h1>
 
+  <% if !flash.empty? %>
+      <div id="flash">
+          <% flash.keys.each do |k| %>
+              <div class="<%= k %>">
+                  <%= flash[k] %>
+              </div>
+          <% end %>
+      </div>
+  <% end %>
+  <br>
 <div class="form">
 
 <%= form_for :session, url: :sessions do |f| %>

@@ -10,7 +10,7 @@ private
   def ensure_logged_in
     unless current_user
 
-      redirect_to new_sessions_path, alert: "please log in"
+      redirect_to new_sessions_path, alert: "You are not autherized, Please login"
 
     end
   end
