@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+  before_action :ensure_logged_in, except: [:show, :index]
+  before_action :ensure_user_owns_review, only: [:edit, :update, :destroy]
 
 def create
 

@@ -1,5 +1,9 @@
 class ProductsController < ApplicationController
 
+  before_action :ensure_logged_in, except: [:show, :index]
+
+
+
   def index
 
     @products = Product.all
@@ -15,22 +19,24 @@ class ProductsController < ApplicationController
 
   def edit
 
-    @product = Product.find(params[:id])
+    load_product
+    # @product = Product.find(params[:id])
 
   end
 
   def show
 
     # we find the instance of thhe product using params[:id] store it in a variable to be used in the view
-
-    @product = Product.find(params[:id])
+    load_product
+    # @product = Product.find(params[:id])
     @review = Review.new
 
   end
 
   def update
 
-    @product = Product.find(params[:id])
+    load_product
+    # @product = Product.find(params[:id])
 
     @product.name = params[:product][:name]
     @product.description = params[:product][:description]
@@ -62,11 +68,17 @@ class ProductsController < ApplicationController
 
   def destroy
 
-    @product = Product.find(params[:id])
+    # @product = Product.find(params[:id])
+
+    load_product
 
     @product.destroy
 
     redirect_to root_path
 
   end
+
+  def load_product
+  @product = Product.find(params[:id])
+end
 end
